@@ -4,13 +4,10 @@ request.open("GET", "https://restcountries.com/v3.1/all", "true");
 request.send();
 request.onload = function () {
   var countryData = JSON.parse(this.response);
-  const asia = countryData.filter((a) => {
-    if (a.region === "Asia") {
-      return a.name;
-    }
-  });
-  console.log("contries in Asia:", asia);
-
+  const asianCountries = countryData.filter(country=>country.region=="Asia");
+  console.log("Countries in Asia:", asianCountries);
+  
+  
   //b. Get all the Countries with a population of less then 2 lakhs using filter Method
 
   var countryData = JSON.parse(this.response);
